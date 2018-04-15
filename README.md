@@ -39,16 +39,17 @@ The result was benched against
  The search is done with text of *Alice's Adventures In Wonderland*. For the tests the sets of words <"rabbit"> and
  <"rabbit", "eart", "the"> are used. Results as follow
 
-> goos: windows
-> goarch: amd64
-> pkg: bitbucket.org/ThomasWuillemin/levenshteinsearch
-> BenchmarkNaive1Word-8                 30          53038766 ns/op        18400028 B/op     278689 allocs/op
-> BenchmarkNaive3Word-8                 10         143324980 ns/op        43202090 B/op     842243 allocs/op
-> BenchmarkMap1Word-8                  100          11824675 ns/op         3600898 B/op      36130 allocs/op
-> BenchmarkMap3Word-8                   50          32226752 ns/op         9775576 B/op     108589 allocs/op
-> BenchmarkOptimized1Word-8         500000              2608 ns/op            2368 B/op         50 allocs/op
-> BenchmarkOptimized3Word-8         200000              7769 ns/op            7104 B/op        150 allocs/op
-
+```
+goos: windows
+goarch: amd64
+pkg: bitbucket.org/ThomasWuillemin/levenshteinsearch
+BenchmarkNaive1Word-8                 30          53038766 ns/op        18400028 B/op     278689 allocs/op
+BenchmarkNaive3Word-8                 10         143324980 ns/op        43202090 B/op     842243 allocs/op
+BenchmarkMap1Word-8                  100          11824675 ns/op         3600898 B/op      36130 allocs/op
+BenchmarkMap3Word-8                   50          32226752 ns/op         9775576 B/op     108589 allocs/op
+BenchmarkOptimized1Word-8         500000              2608 ns/op            2368 B/op         50 allocs/op
+BenchmarkOptimized3Word-8         200000              7769 ns/op            7104 B/op        150 allocs/op
+```
 
 # Version #
 
