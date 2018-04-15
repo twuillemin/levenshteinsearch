@@ -51,10 +51,14 @@ BenchmarkOptimized1Word-8         500000              2608 ns/op            2368
 BenchmarkOptimized3Word-8         200000              7769 ns/op            7104 B/op        150 allocs/op
 ```
 
+# Next steps #
+
+More optimizations
+
 # Version #
 
 * 0.1.0 - Initial version
 
 # Contact #
 
-Use the project page [https://bitbucket.org/ThomasWuillemin/wtkgrammar]
+Me, I suppose: Thomas Wuillemin (thomas.wuillemin _at_ gmail.com)
