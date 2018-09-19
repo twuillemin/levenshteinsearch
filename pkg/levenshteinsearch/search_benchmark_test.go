@@ -1,13 +1,16 @@
 package levenshteinsearch
 
 import (
-	"os"
 	"bufio"
+	"log"
+	"os"
 	"strings"
 	"testing"
 )
 
 var aliceWords []string
+
+const maxSimilaritySearch = 10
 
 func ensureAlice() error {
 
@@ -15,10 +18,10 @@ func ensureAlice() error {
 		return nil
 	}
 
-	file, err := os.Open("test/alice.txt")
+	file, err := os.Open("../../assets/alice/alice.txt")
 
 	if err != nil {
-		return err
+		log.Fatal(err)
 	}
 
 	defer file.Close()
@@ -43,7 +46,7 @@ func ensureAlice() error {
 	}
 
 	if err := scanner.Err(); err != nil {
-		return err
+		log.Fatal(err)
 	}
 
 	return nil
@@ -55,7 +58,7 @@ func BenchmarkNaive1Word(b *testing.B) {
 	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
-		for i := 0; i < 10; i++ {
+		for i := 0; i < maxSimilaritySearch; i++ {
 			distanceNaive(aliceWords, "rabbit", i)
 		}
 	}
@@ -67,19 +70,19 @@ func BenchmarkNaive3Word(b *testing.B) {
 	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
-		for i := 0; i < 10; i++ {
+		for i := 0; i < maxSimilaritySearch; i++ {
 			distanceNaive(aliceWords, "rabbit", i)
 		}
 	}
 
 	for i := 0; i < b.N; i++ {
-		for i := 0; i < 10; i++ {
+		for i := 0; i < maxSimilaritySearch; i++ {
 			distanceNaive(aliceWords, "eart", i)
 		}
 	}
 
 	for i := 0; i < b.N; i++ {
-		for i := 0; i < 10; i++ {
+		for i := 0; i < maxSimilaritySearch; i++ {
 			distanceNaive(aliceWords, "the", i)
 		}
 	}
@@ -105,7 +108,7 @@ func BenchmarkMap1Word(b *testing.B) {
 	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
-		for i := 0; i < 10; i++ {
+		for i := 0; i < maxSimilaritySearch; i++ {
 			distanceMap(aliceMap, "rabbit", i)
 		}
 	}
@@ -131,19 +134,19 @@ func BenchmarkMap3Word(b *testing.B) {
 	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
-		for i := 0; i < 10; i++ {
+		for i := 0; i < maxSimilaritySearch; i++ {
 			distanceMap(aliceMap, "rabbit", i)
 		}
 	}
 
 	for i := 0; i < b.N; i++ {
-		for i := 0; i < 10; i++ {
+		for i := 0; i < maxSimilaritySearch; i++ {
 			distanceMap(aliceMap, "eart", i)
 		}
 	}
 
 	for i := 0; i < b.N; i++ {
-		for i := 0; i < 10; i++ {
+		for i := 0; i < maxSimilaritySearch; i++ {
 			distanceMap(aliceMap, "the", i)
 		}
 	}
@@ -159,7 +162,7 @@ func BenchmarkOptimized1Word(b *testing.B) {
 	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
-		for i := 0; i < 10; i++ {
+		for i := 0; i < maxSimilaritySearch; i++ {
 			dict.SearchAll("rabbit", i)
 		}
 	}
@@ -174,17 +177,17 @@ func BenchmarkOptimized3Word(b *testing.B) {
 	b.ReportAllocs()
 
 	for i := 0; i < b.N; i++ {
-		for i := 0; i < 10; i++ {
+		for i := 0; i < maxSimilaritySearch; i++ {
 			dict.SearchAll("rabbit", i)
 		}
 	}
 	for i := 0; i < b.N; i++ {
-		for i := 0; i < 10; i++ {
+		for i := 0; i < maxSimilaritySearch; i++ {
 			dict.SearchAll("eart", i)
 		}
 	}
 	for i := 0; i < b.N; i++ {
-		for i := 0; i < 10; i++ {
+		for i := 0; i < maxSimilaritySearch; i++ {
 			dict.SearchAll("the", i)
 		}
 	}

@@ -1,8 +1,8 @@
 package levenshteinsearch
 
 import (
-	"sort"
 	"fmt"
+	"sort"
 )
 
 // LevenshteinAutomaton is simply the definition of the automaton.
