@@ -59,7 +59,7 @@ func (dictionary *Dictionary) Put(key string) bool {
 
 	// Rune by rune up to the node
 	for _, r := range key {
-		child, _ := node.children[r]
+		child := node.children[r]
 		if child == nil {
 			child = NewRuneTrie()
 			node.children[r] = child

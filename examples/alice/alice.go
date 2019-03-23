@@ -1,8 +1,8 @@
 package main
 
 import (
-	"bitbucket.org/twuillemin/levenshteinsearch/pkg/levenshteinsearch"
 	"bufio"
+	"github.com/twuillemin/levenshteinsearch/pkg/levenshteinsearch"
 	"log"
 	"os"
 	"strings"
@@ -30,17 +30,17 @@ func main() {
 
 	// Get information about rabbit
 	wordInformation := dict.Get("rabbit")
-	if wordInformation!=nil {
+	if wordInformation != nil {
 		log.Printf("Number of times the word 'rabbit' is present: %v", wordInformation.Count)
-	}	else {
+	} else {
 		log.Printf("The word 'rabbit' is not part of Alice In Wonderlands")
 	}
 
 	// Get information about flat worm
 	wordInformation = dict.Get("platyhelminth")
-	if wordInformation!=nil {
+	if wordInformation != nil {
 		log.Printf("Number of times the word 'platyhelminth' is present: %v", wordInformation.Count)
-	}	else {
+	} else {
 		log.Printf("The word 'platyhelminth' is not part of Alice In Wonderlands")
 	}
 
@@ -48,8 +48,8 @@ func main() {
 	for distance := 0; distance < 4; distance++ {
 		wordInformationByWord := dict.SearchAll("rabbit", distance)
 		log.Printf("Number of words close to \"rabbit\" with a distance of %v: %v", distance, len(wordInformationByWord))
-		for key,value := range wordInformationByWord {
-			log.Printf("\tWord: '%v' count: %v", key,value.Count)
+		for key, value := range wordInformationByWord {
+			log.Printf("\tWord: '%v' count: %v", key, value.Count)
 		}
 	}
 }

@@ -94,18 +94,18 @@ The result was benched against:
  <_rabbit_, _eart_, _the_> are used. Results as follow:
 
 ```
-go version go1.11 windows/amd64
+go version go1.12 linux/amd64
 ```
 ```
-goos: windows
+goos: linux
 goarch: amd64
-pkg: bitbucket.org/twuillemin/levenshteinsearch/pkg/levenshteinsearch
-BenchmarkNaive1Word-8       	      30	  50888216 ns/op	18399690 B/op	  278693 allocs/op
-BenchmarkNaive3Word-8       	      10	 133466320 ns/op	43199491 B/op	  842243 allocs/op
-BenchmarkMap1Word-8         	     100	  11002825 ns/op	 3600740 B/op	   36130 allocs/op
-BenchmarkMap3Word-8         	      50	  30208276 ns/op	 9774411 B/op	  108587 allocs/op
-BenchmarkOptimized1Word-8   	  500000	      2757 ns/op	    2368 B/op	      50 allocs/op
-BenchmarkOptimized3Word-8   	  200000	      8162 ns/op	    7104 B/op	     150 allocs/op
+pkg: github.com/twuillemin/levenshteinsearch/pkg/levenshteinsearch
+BenchmarkNaive1Word-8       	      30	  49067618 ns/op	18398114 B/op	  278685 allocs/op
+BenchmarkNaive3Word-8       	      10	 129002968 ns/op	43198313 B/op	  842237 allocs/op
+BenchmarkMap1Word-8         	     200	   9906184 ns/op	 3600539 B/op	   36129 allocs/op
+BenchmarkMap3Word-8         	      50	  27408442 ns/op	 9776948 B/op	  108599 allocs/op
+BenchmarkOptimized1Word-8   	  500000	      2493 ns/op	    2368 B/op	      50 allocs/op
+BenchmarkOptimized3Word-8   	  200000	      9378 ns/op	    7104 B/op	     150 allocs/op
 PASS
 ```
 

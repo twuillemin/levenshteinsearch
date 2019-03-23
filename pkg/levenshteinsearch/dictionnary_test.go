@@ -22,7 +22,6 @@ func TestGetPut(t *testing.T) {
 		t.Error("Expected the dictionnary to have 1 unique word")
 	}
 
-
 	dict.Put("orange")
 	wordInfo = dict.Get("orange")
 

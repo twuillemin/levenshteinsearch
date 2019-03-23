@@ -53,7 +53,11 @@ func ensureAlice() error {
 }
 
 func BenchmarkNaive1Word(b *testing.B) {
-	ensureAlice()
+
+	if err := ensureAlice(); err != nil {
+		log.Fatal(err)
+	}
+
 	b.ResetTimer()
 	b.ReportAllocs()
 
@@ -65,7 +69,11 @@ func BenchmarkNaive1Word(b *testing.B) {
 }
 
 func BenchmarkNaive3Word(b *testing.B) {
-	ensureAlice()
+
+	if err := ensureAlice(); err != nil {
+		log.Fatal(err)
+	}
+
 	b.ResetTimer()
 	b.ReportAllocs()
 
@@ -89,7 +97,10 @@ func BenchmarkNaive3Word(b *testing.B) {
 }
 
 func BenchmarkMap1Word(b *testing.B) {
-	ensureAlice()
+
+	if err := ensureAlice(); err != nil {
+		log.Fatal(err)
+	}
 
 	aliceMap := map[string]*WordInformation{}
 
@@ -115,7 +126,10 @@ func BenchmarkMap1Word(b *testing.B) {
 }
 
 func BenchmarkMap3Word(b *testing.B) {
-	ensureAlice()
+
+	if err := ensureAlice(); err != nil {
+		log.Fatal(err)
+	}
 
 	aliceMap := map[string]*WordInformation{}
 
@@ -152,9 +166,11 @@ func BenchmarkMap3Word(b *testing.B) {
 	}
 }
 
-
 func BenchmarkOptimized1Word(b *testing.B) {
-	ensureAlice()
+
+	if err := ensureAlice(); err != nil {
+		log.Fatal(err)
+	}
 
 	dict := CreateDictionary()
 
@@ -169,7 +185,10 @@ func BenchmarkOptimized1Word(b *testing.B) {
 }
 
 func BenchmarkOptimized3Word(b *testing.B) {
-	ensureAlice()
+
+	if err := ensureAlice(); err != nil {
+		log.Fatal(err)
+	}
 
 	dict := CreateDictionary()
 

@@ -164,7 +164,7 @@ func CreateDigraph(searchedTerm string, distanceMax int) []string {
 
 	digraphInfo := &digraphInformation{
 		counter:     0,
-		states:      make(map[int]*int, 0),
+		states:      make(map[int]*int),
 		transitions: make([]transitionDetail, 0),
 		matching:    make([]int, 0),
 	}
