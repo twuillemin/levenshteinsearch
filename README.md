@@ -1,4 +1,4 @@
-#Fast Levenshtein search
+# Fast Levenshtein search
 
 This project offers a fast and efficient and efficient fuzzy search on large dictionary. To (try to) offer a good level 
 of performances, the two following approaches are used:
@@ -9,9 +9,9 @@ the Trie is walked
 
 The automaton is fully described by Jules Jacobs in this [article](https://julesjacobs.github.io/2015/06/17/disqus-levenshtein-simple-and-fast.html). So please be sure to give him a thumb.
 
-#Usage
-##Initialization
-###Creation of the dictionary
+# Usage
+## Initialization
+### Creation of the dictionary
 The first step of the search is the creation of a `Dictionary` structure that is holding all the words. The structure is 
 created simply by calling the function `levenshteinsearch.CreateDictionary()` without any specific parameter.
 
@@ -20,7 +20,7 @@ Example
 dict := levenshteinsearch.CreateDictionary()
 ```
 
-###Adding words to the dictionary
+### Adding words to the dictionary
 Words are added one by one to the dictionary, using its member function Put().
 
 Example
@@ -31,8 +31,8 @@ for _, word := range allWords {
 }
 ```
 
-##Requests
-###Retrieving the dictionary information
+## Requests
+### Retrieving the dictionary information
 Once initialized, the dictionary has two properties `WordCount` and `UniqueWordCount`, giving information about its content
 
 Example
@@ -42,7 +42,7 @@ log.Printf("Number of words in the dictionary: %v", dict.WordCount)
 log.Printf("Number of unique words in the dictionary: %v", dict.UniqueWordCount)
 ```
 
-###Retrieving information about a single word
+### Retrieving information about a single word
 Information about a single word can be retrieved using the function `Get` of the dictionary. The function will return a
 pointer to a `WordInformation` structure. Currently this structure only have a single information, named `Count` which 
 represents the number of time the word was put in the dictionary. Please, note that `Get` will return _nil_ if the 
@@ -59,7 +59,7 @@ if wordInformation!=nil {
 }
 ```
 
-###Retrieving similar words
+### Retrieving similar words
 The dictionary also allow to query for similar words. The similarity is given by the Levenshtein distance [Wikipedia](https://en.wikipedia.org/wiki/Levenshtein_distance).
 
 For searching the similar words, the dictionary has a function named `SearchAll()`, that takes in parameters the searched 
@@ -79,11 +79,11 @@ for key,value := range wordInformationByWord {
 }
 ```
 
-#Example
+# Example
 A full working example is given in the folder `/example/alice/alice.go`.
 
 
-#Performances
+# Performances
 The result was benched against:
 
  * a very naive: Dictionary is stored as a simple list of strings. For each query, all string of the list is tested
